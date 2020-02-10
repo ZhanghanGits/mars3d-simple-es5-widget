@@ -1,4 +1,4 @@
-# [Mars3D](http://cesium.marsgis.cn)项目模版 - ES5传统版（含widget模块）
+# Mars3D项目模版 - ES5传统版（含widget模块）
    传统模式Web前端技术栈下的一个具备widget基础功能的[Mars3D](http://cesium.marsgis.cn)应用的三维地球项目模版
  
 
