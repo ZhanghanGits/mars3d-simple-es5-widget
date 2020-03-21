@@ -21,7 +21,7 @@ $(document).ready(function () {
     //记录url传入参数
     request = haoutil.system.getRequest();
     if(window.top){//有父级
-        request = haoutil.system.getRequest(window.top);
+        request = $.extend(request,haoutil.system.getRequest(window.top));
     }
 
 
