@@ -141,6 +141,7 @@ mars3d.widget.bindClass(mars3d.widget.BaseWidget.extend({
             horizontalAngle: options.horizontalAngle,
             verticalAngle: options.verticalAngle,
             distance: options.distance,
+            offsetHeight: 1.5, //增加人的升高
             calback: function (distance) {
                 if (that.viewWindow)
                     that.viewWindow.updateKsyDistance(distance);
@@ -258,17 +259,11 @@ mars3d.widget.bindClass(mars3d.widget.BaseWidget.extend({
     //=========地表透明========
     createDBTM: function () {
         this.openTerrainDepthTest();
-        this.viewer.scene.globe.baseColor = new Cesium.Color.fromCssColorString("rgba(0,0,0.0,0.5,1.0)"); //地表背景色
 
         this.underObj = new mars3d.analysi.Underground(viewer, {
-            depth: 500, //允许相机地下深度(相对于地表海拔)
             alpha: 0.5,
             enable: false,
         });
-
-        //加控制，只在相机高度低于10000时才开启地表透明 
-        viewer.scene.camera.changed.addEventListener(this.cameraChangeHandler, this);
-
     },
     destroyDBTM: function () {
         if (!this.underObj) return;
@@ -277,23 +272,10 @@ mars3d.widget.bindClass(mars3d.widget.BaseWidget.extend({
 
         this.underObj.destroy();
         delete this.underObj;
-        viewer.scene.camera.changed.removeEventListener(this.cameraChangeHandler, this);
     },
     clearDBTM: function () {
 
 
-    },
-    cameraChangeHandler: function () {
-        if (!this.viewWindow) return;
-        if (viewer.camera.positionCartographic.height < 10000) {
-            var val = this.viewWindow.getDbtmEnable();
-            if (val != this.underObj.enable)
-                this.underObj.enable = val;
-            this.viewWindow.updateDbtmVisible(true);
-        } else {
-            this.underObj.enable = false;
-            this.viewWindow.updateDbtmVisible(false);
-        }
     },
 
     //=========坡度坡向========
@@ -481,7 +463,7 @@ mars3d.widget.bindClass(mars3d.widget.BaseWidget.extend({
             return false;
         }
 
-    
+
         this.tilesetClip = new mars3d.tiles.TilesClipPlan({
             // viewer: this.viewer,
             tileset: tileset,
