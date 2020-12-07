@@ -650,7 +650,7 @@
                     { "field": "所在区县", "name": "所在区县" },
                     { "field": "具体位置", "name": "具体位置" },
                     { "field": "建设内容（", "name": "建设内容" },
-                    { "field": "用地面积（", "name": "用地面积", "unit": "亩" },
+                    { "field": "用地面积（", "name": "用地面积", "format":"mars3d.point.formatNum", "unit": "亩" },
                     { "field": "设施规模（", "name": "设施规模" },
                     { "field": "举办者类型", "name": "举办者类型" },
                     { "field": "开工时间", "name": "开工时间" },
@@ -1020,7 +1020,7 @@
                 "dynamicScreenSpaceError": true,        
                 "preloadWhenHidden": true,     
 
-                "offset": { "x": 117.251229,"y": 31.844015, "z": 36.2, "transform": true},
+                "offset": { "x": 117.251229,"y": 31.844015, "z": 36.2},
                 "center":{ "y": 31.842655, "x": 117.251587, "z": 304.57, "heading": 358, "pitch": -59, "roll": 360 },
                 "scenetree": "scenetree.json",
                 "showClickFeature":true,
@@ -1047,7 +1047,9 @@
                 "dynamicScreenSpaceError": true,        
                 "preloadWhenHidden": true,            
               
-                "offset":{"x":117.096906,"y":31.851564,"z":45,"heading":342.5},
+                "offset":{"x":117.096906,"y":31.851564,"z":45},                
+                "rotation": { "z": 342.5 },
+
                 "center":{"y":31.849357,"x":117.099194,"z":306.2,"heading":327.1,"pitch":-30.9,"roll":359.9},
                 "scenetree": "scenetree.json",
                 "showClickFeature":true,
@@ -1071,7 +1073,7 @@
                 "url": "http://data.marsgis.cn/3dtiles/max-piping-hf/tileset.json",
                 "maximumScreenSpaceError": 2,
                 "maximumMemoryUsage": 1024,
-                "offset": { "x": 117.215457, "y": 31.843363, "z": 5, "transform": true},
+                "offset": { "x": 117.215457, "y": 31.843363, "z": 5},
                 "rotation": { "z":  23.3 },
                 "center":{"y":31.840525,"x":117.217024,"z":495.12,"heading":360,"pitch":-59.3,"roll":360},
                 "showClickFeature": true,
@@ -1088,8 +1090,7 @@
                 "offset": {
                     "x": 117.077158,
                     "y": 31.659116,
-                    "z": 93,
-                    "transform": true
+                    "z": 93
                 },
                 "center": {
                     "y": 31.654436,
@@ -1125,7 +1126,7 @@
                 "url": "http://data.marsgis.cn/3dtiles/max-fsdzm/tileset.json",
                 "maximumScreenSpaceError": 1,
                 "maximumMemoryUsage": 1024,
-                "offset": { "z": 3 },
+                "offset": { "z": 11.3 },
                 "center": { "y": 29.792675, "x": 121.480207, "z": 190.8, "heading": 196.1, "pitch": -49, "roll": 359.9 }
             },
          
